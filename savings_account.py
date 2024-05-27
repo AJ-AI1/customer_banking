@@ -21,13 +21,13 @@ def create_savings_account(balance, interest_rate, months):
 savings_account = Account(balance, interest_rate)
 
 balance = float(input("Enter your savings account balance "))
-interest_rate = float(input("Enter your APR interest rate for the savings account ")) 
-
+interest_rate = float(input("Enter your APR interest rate in two decimal ")) 
+months = int(input("Enter months remaining "))
 
     # Calculate interest earned
     # ADD YOUR CODE HERE
 
-interest_earned = balance * interest_rate
+interest_earned = balance * interest_rate * (months/12)
 print(f"Interest earned: ${interest_earned:.2f}")
 
 
@@ -46,8 +46,11 @@ savings_account.set_interest(interest_earned)
 
     # Return the updated balance and interest earned.
     return  # ADD YOUR CODE HERE
+def updated_interest(balance, interest_rate, months):
+    interest_earned = balance * interest_rate * (months / 12)
+    updated_savings_balance = balance + interest_earned
+    return updated_savings_balance, interest_earned
 
-Interest on the balance is calculated as follows: interest = balance * (apr/100 * months/12).
 
 You will need to use 0 for the amount of interest to set the balance before you pass the interest earned to the set interest method.
 
